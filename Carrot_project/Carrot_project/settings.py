@@ -26,7 +26,10 @@ SECRET_KEY = 'pd_su=kaedat_&%$dd@o4e*xqt_%purnmrq6)wt-m71*pgmo3e'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost'
+    'localhost',
+    '127.0.01',
+    '[::1]',
+    '.pythonanywhere.com',
 ]
 
 
