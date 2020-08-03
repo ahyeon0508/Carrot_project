@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
 from rest_framework.generics import ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, CreateAPIView
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .models import Carrot
 from .serializers import CarrotSerializer, CarrotRetrieveSerializer, CarrotWriteSerializer
 
@@ -11,7 +12,7 @@ class Carrot_status_list(ListAPIView):
 
 class Carrot_status_retrieve(RetrieveAPIView):
     lookup_field = 'pk'
-    queryset = Carrot.objects.all()
+    queryset = Carrot.objects.all().order_by('-time')
     serializer_class = CarrotRetrieveSerializer
 
 class Carrot_status_update(UpdateAPIView):
@@ -26,9 +27,8 @@ class Carrot_status_write(CreateAPIView):
     queryset = Carrot.objects.all()
     serializer_class = CarrotWriteSerializer
 
-class CurrentCarrotStatus(ListAPIView):
-    queryset = Carrot.objects.all().order_by('-time')[:1]
-    serializer_class = CarrotSerializer
-
-# def getFeedback(self, request):
+class CurrentCarrotStatus(APIView):
+    def get(self, request):
+        serializer = CarrotSerializer(Carrot.objects.all().order_by('-time')[0])
+        return Response(serializer.data)
 
