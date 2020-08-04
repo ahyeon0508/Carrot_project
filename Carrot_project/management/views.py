@@ -1,3 +1,6 @@
+import os
+import json
+
 from django.shortcuts import render
 
 from rest_framework.generics import ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, CreateAPIView
@@ -31,4 +34,23 @@ class CurrentCarrotStatus(APIView):
     def get(self, request):
         serializer = CarrotSerializer(Carrot.objects.all().order_by('-time')[0])
         return Response(serializer.data)
+
+class CarrotCarrotImage(APIView):
+    def post(self, request):
+        # print("===============")
+        # print(os.path.realpath(__file__))
+        # print("===============")
+        with open('management\static\management\carrot_img.json', 'w', encoding='utf-8') as make_file:
+            json.dump(request.data, make_file, indent="\t")
+        # carrot_img.write(request.data)
+        # carrot_img.close()
+        return Response()
+
+    def get(self, request):
+        with open('management\static\management\carrot_img.json', 'r') as carrot_img_json:
+            carrot_img = json.load(carrot_img_json)
+        return Response(carrot_img)
+
+
+
 

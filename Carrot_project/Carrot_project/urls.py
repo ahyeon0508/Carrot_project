@@ -35,6 +35,7 @@ urlpatterns = [
     path('carrots/<int:pk>/delete/', views.Carrot_status_delete.as_view(), name='carrots-status-delete'),
 
     path('carrots/current-status/', views.CurrentCarrotStatus.as_view(), name='current-carrots-status'),
+    path('carrots/current-carrot-img/', views.CarrotCarrotImage.as_view(), name='currnet-carrot-img'),
 
 ]
 
