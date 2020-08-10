@@ -9,6 +9,8 @@ from rest_framework.response import Response
 from .models import Carrot
 from .serializers import CarrotSerializer, CarrotRetrieveSerializer, CarrotWriteSerializer
 
+# from AI import get_Action
+
 class Carrot_status_list(ListAPIView):
     queryset = Carrot.objects.all()
     serializer_class = CarrotSerializer
@@ -51,6 +53,9 @@ class CarrotCarrotImage(APIView):
             carrot_img = json.load(carrot_img_json)
         return Response(carrot_img)
 
+class Carrot_Action(APIView):
+    def get:
+        Carrot.objects.all().order_by('-time')[0]
 
 
 

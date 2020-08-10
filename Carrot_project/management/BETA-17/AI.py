@@ -27,6 +27,14 @@ def get_Action(Humid, Temp):
             print(S)
             print(state)
             action = agent.action_process(state)
+            if action == 0:
+                print('급수')
+            elif action == 1:
+                print('온도상승')
+            elif action == 2:
+                print('온도하락')
+            else:
+                print('유지')
             next_state, reward, done = env.step(action)
             if done:
                 print("step", S, "  episode:", E, "  score:", score)
