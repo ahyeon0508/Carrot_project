@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from Hyperparams import MAX_STEPS
+from .Hyperparams import MAX_STEPS
 
 
 

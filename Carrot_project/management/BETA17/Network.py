@@ -1,8 +1,8 @@
 import torch
 from torch import nn
-from Hyperparams import NUM_STATES
-from Hyperparams import NUM_ACTIONS
-from Hyperparams import NODES
+from .Hyperparams import NUM_STATES
+from .Hyperparams import NUM_ACTIONS
+from .Hyperparams import NODES
 
 
 

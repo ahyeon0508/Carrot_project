@@ -1,4 +1,4 @@
-from Network import Brain
+from .Network import Brain
 
 
 

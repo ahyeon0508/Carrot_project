@@ -36,6 +36,7 @@ urlpatterns = [
 
     path('carrots/current-status/', views.CurrentCarrotStatus.as_view(), name='current-carrots-status'),
     path('carrots/current-carrot-img/', views.CarrotCarrotImage.as_view(), name='currnet-carrot-img'),
+    path('carrots/get-action/', views.Carrot_Action.as_view(), name='get-action'),
 
 ]
 
