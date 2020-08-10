@@ -59,8 +59,10 @@ class Carrot_Action(APIView):
         Humid = Carrot.objects.all().order_by('-time')[0].wetness
         Temp = Carrot.objects.all().order_by('-time')[0].temperature
         action = get_Action(Humid, Temp)
-        action = {"code":action}
-        return Response(json.dumps(action, ensure_ascii=False, indent="\t"))
+        action = {
+            'code':action
+            }
+        return Response(action)
 
 
 
