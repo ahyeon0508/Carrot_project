@@ -7,7 +7,14 @@ from Hyperparams import MAX_STEPS
 
 
 
-if __name__ == '__main__':
+def get_Action(Humid, Temp):
+    state = torch.tensor([Humid, Temp])
+    agent = Agent()
+    agent.brain.Q.load_state_dict(torch.load(PATH))
+    action = agent.action_process(state)
+    return action
+
+'''if __name__ == '__main__':
     env = Carrot_House()
     agent = Agent()
     agent.brain.Q.load_state_dict(torch.load(PATH))
@@ -27,4 +34,4 @@ if __name__ == '__main__':
             else:
                 score += reward
                 state = next_state
-    print('Task End')
+    print('Task End')'''

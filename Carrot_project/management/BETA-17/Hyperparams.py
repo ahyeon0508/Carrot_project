@@ -3,4 +3,5 @@ NUM_ACTIONS = 4
 NODES = 24
 EPISODES = 10000
 MAX_STEPS = 200
-PATH = 'management\BETA-17\Beta-17.pth'
+PATH = 'Beta-17.pth'
+#PATH = 'management\BETA-17\Beta-17.pth'
