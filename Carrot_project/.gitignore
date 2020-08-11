@@ -5,3 +5,9 @@ venv
 db.sqlite3
 /static
 .DS_Store
+*.log
+*.pot
+__pycache_/
+local_settings.py
+db.sqlite3
+media
