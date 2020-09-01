@@ -18,5 +18,5 @@ void loop() {
   object["moisture"] = moisture;
   object.printTo(jsondata); //String으로 변환
   Serial.println(jsondata);
-  delay(3600000);
+  delay(10000);
 }
