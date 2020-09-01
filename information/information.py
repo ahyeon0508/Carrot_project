@@ -12,17 +12,16 @@ while True:
     # 이미지 주소
     imgSrc = "./2.jpg"
 
-
     # 당근 상태 값으로 받아오기
     stateValue = 0
     stateList = []
 
-    stateList.append(yellow_tracking(imgSrc))
+    stateList.append(yellowOrange_tracking(imgSrc))
     stateList.append(white_tracking(imgSrc))
     stateList.append(darkBrown_tracking(imgSrc))
     stateList.append(black_tracking(imgSrc))
 
-    for i in range(5):
+    for i in range(4):
         if stateList[i] != 0:
             stateValue = stateList[i]
             break
@@ -50,21 +49,21 @@ while True:
 
     # 수분
     wetness = float(a.get('moisture'))
-    if wetness <= 350:                      # 수분이 충분한 상태
+    if wetness > 950:                      # 수분이 부족한 상태
         wetness = 0
-    elif 350 < wetness <= 450:
-        wetness = 1
-    elif 450 < wetness <= 550:
-        wetness = 2
-    elif 550 < wetness <= 650:
-        wetness = 3
-    elif 650 < wetness <= 750:
-        wetness = 4
-    elif 750 < wetness <= 850:
-        wetness = 5
     elif 850 < wetness <= 950:
+        wetness = 1
+    elif 750 < wetness <= 850:
+        wetness = 2
+    elif 650 < wetness <= 750:
+        wetness = 3
+    elif 550 < wetness <= 650:
+        wetness = 4
+    elif 450 < wetness <= 550:
+        wetness = 5
+    elif 350 < wetness <= 450:
         wetness = 6
-    else:                                   # 수분이 부족한 상태
+    else:                                   # 수분이 충분한 상태
         wetness = 7
 
 

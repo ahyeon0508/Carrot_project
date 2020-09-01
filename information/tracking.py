@@ -43,7 +43,7 @@ def color_processing(img, lower_color, upper_color):
 
     return image
 
-def yellow_tracking(imgSrc):
+def yellowOrange_tracking(imgSrc):
     # 이미지 파일을 읽어온다
     img = cv2.imread(imgSrc)
 
@@ -56,7 +56,7 @@ def yellow_tracking(imgSrc):
     clt.fit(image)
 
     hist = centroid_histogram(clt)
-    print(hist)
+
     try:
         if hist[1] > 0:
             return 100
@@ -76,7 +76,6 @@ def white_tracking(imgSrc):
     clt.fit(image)
 
     hist = centroid_histogram(clt)
-    print(hist)
 
     try:
         if hist[1] > 0:
@@ -97,7 +96,6 @@ def darkBrown_tracking(imgSrc):
     clt.fit(image)
 
     hist = centroid_histogram(clt)
-    print(hist)
 
     try:
         if hist[1] > 0:
@@ -118,7 +116,6 @@ def black_tracking(imgSrc):
     clt.fit(image)
 
     hist = centroid_histogram(clt)
-    print(hist)
 
     try:
         if hist[1] > 0:
