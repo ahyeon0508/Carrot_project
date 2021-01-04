@@ -2,12 +2,15 @@ import os
 import json
 
 from django.shortcuts import render
+from django.core import serializers
 
 from rest_framework.generics import ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Carrot
 from .serializers import CarrotSerializer, CarrotRetrieveSerializer, CarrotWriteSerializer
+
+from .BETA17.AI import get_Action
 
 class Carrot_status_list(ListAPIView):
     queryset = Carrot.objects.all()
@@ -50,6 +53,18 @@ class CarrotCarrotImage(APIView):
         with open('management\static\management\carrot_img.json', 'r') as carrot_img_json:
             carrot_img = json.load(carrot_img_json)
         return Response(carrot_img)
+
+class Carrot_Action(APIView):
+    def get(self, request):
+        Humid = Carrot.objects.all().order_by('-time')[0].wetness
+        Temp = Carrot.objects.all().order_by('-time')[0].temperature
+        action = get_Action(Humid, Temp)
+        action = {
+            'code':action
+            }
+        return Response(action)
+
+
 
 
 

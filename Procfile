@@ -1,0 +1,1 @@
+web: gunicorn Carrot_project.Carrot_project.wsgi
